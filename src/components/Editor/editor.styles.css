@@ -2,12 +2,10 @@
 @import "codemirror/theme/yonce.css";
 
 #editor {
-	height: 40vh;
-	width: 33.333%;
-	margin-right: 0.5rem;
+	height: 13vh;
 }
 
-.editor__title {
+.editor-title {
 	background-color: black;
 	color: white;
 	font-size: 1.2rem;
@@ -16,5 +14,7 @@
 }
 
 .CodeMirror {
-	height: 100%;
+	cursor: text;
+	text-align: left;
+	font-size: 1.2rem;
 }

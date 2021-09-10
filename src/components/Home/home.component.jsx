@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import "./home.styles.css";
 import Editor from "../Editor/editor.component";
+import Footer from "../Footer/footer.component";
 
 function Home() {
 	const [html, setHtml] = useState("");
@@ -17,7 +18,7 @@ function Home() {
 
 	return (
 		<div id="home">
-			<div className="panel top-panel">
+			<div className="panel left-panel">
 				<Editor
 					language="xml"
 					displayName="HTML"
@@ -37,15 +38,18 @@ function Home() {
 					value={js}
 				/>
 			</div>
-			<h1 className="bottom-panel-title">OUTPUT PANEL</h1>
-			<iframe
-				srcDoc={srcDoc}
-				title="output"
-				sandbox="allow-scripts"
-				frameBorder="0"
-				width="100%"
-				height="100%"
-			/>
+			<div className="panel right-panel">
+				<h1 className="right-panel-title">OUTPUT PANEL</h1>
+				<iframe
+					srcDoc={srcDoc}
+					title="output"
+					sandbox="allow-scripts"
+					frameBorder="0"
+					width="100%"
+					height="100%"
+				/>
+				<Footer />
+			</div>
 		</div>
 	);
 }

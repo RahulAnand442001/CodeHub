@@ -14,7 +14,7 @@ const Editor = (props) => {
 
 	return (
 		<div id="editor">
-			<div className="editor__title">{displayName}</div>
+			<div className="editor-title">{displayName}</div>
 			<CodeMirror
 				onBeforeChange={handleChange}
 				value={value}
