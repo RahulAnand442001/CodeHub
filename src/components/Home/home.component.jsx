@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import "./home.styles.css";
 import Editor from "../Editor/editor.component";
 import Footer from "../Footer/footer.component";
@@ -7,6 +7,21 @@ function Home() {
 	const [html, setHtml] = useState("");
 	const [css, setCss] = useState("");
 	const [js, setJs] = useState("");
+
+	useEffect(() => {
+		let htmlData = localStorage.getItem("html");
+		let cssData = localStorage.getItem("css");
+		let jsData = localStorage.getItem("js");
+		if (htmlData) {
+			setHtml(htmlData);
+		}
+		if (cssData) {
+			setCss(cssData);
+		}
+		if (jsData) {
+			setJs(jsData);
+		}
+	}, []);
 
 	let srcDoc = `
 	<!DOCTYPE html>
@@ -21,6 +36,16 @@ function Home() {
 	</head>
 	<body>${html}</body>
 	</html>`;
+
+	const iframeInnerHtmlDoc = useRef();
+
+	const handleClick = () => {
+		console.log(iframeInnerHtmlDoc.current.srcdoc);
+		//localStorage.setItem("htmlCode", iframeInnerHtmlDoc.current.srcdoc);
+		localStorage.setItem("html", html);
+		localStorage.setItem("css", css);
+		localStorage.setItem("js", js);
+	};
 
 	return (
 		<div id="home">
@@ -45,8 +70,17 @@ function Home() {
 				/>
 			</div>
 			<div className="panel right-panel">
-				<h1 className="right-panel-title">CODEHUB</h1>
+				<div className="right-panel-title">
+					<span>CODEHUB</span>
+					<div className="cta">
+						<button onClick={handleClick} className="cta-save">
+							SAVE
+						</button>
+						<button className="cta-download">DOWNLOAD</button>
+					</div>
+				</div>
 				<iframe
+					ref={iframeInnerHtmlDoc}
 					srcDoc={srcDoc}
 					title="output"
 					sandbox="allow-scripts"

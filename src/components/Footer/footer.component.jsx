@@ -8,8 +8,8 @@ const Footer = () => {
 	return (
 		<div className="footer">
 			<p className="footer-title">
-				Made with <FontAwesomeIcon color="#fff" icon={faReact} /> by Rahul Anand
-				Sahu
+				Made with <FontAwesomeIcon color="#fff" icon={faReact} /> by
+				<a href="https://github.com/RahulAnand442001" id="author-link">Rahul Anand Sahu</a>
 			</p>
 		</div>
 	);

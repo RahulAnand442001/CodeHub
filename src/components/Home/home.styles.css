@@ -24,13 +24,40 @@
 }
 
 .right-panel-title {
-	padding: 1.2rem;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0.4rem 1.2rem;
+	width: 90%;
+}
+
+.right-panel-title span {
 	font-size: 2rem;
 	letter-spacing: 4px;
 	font-weight: 400;
 	text-align: center;
 	color: white;
+	margin: 0.5rem;
 }
+
+.cta {
+	display: flex;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.cta-save,
+.cta-download {
+	padding: 0.3rem 0.8rem;
+	outline: none;
+	border: none;
+	font-size: 1rem;
+	letter-spacing: 3px;
+	color: black;
+	margin: 0.5rem;
+	cursor: pointer;
+}
+
 iframe {
 	background-color: white !important;
 }
