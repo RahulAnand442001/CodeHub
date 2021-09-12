@@ -29,6 +29,7 @@
 	justify-content: space-between;
 	padding: 0.4rem 1.2rem;
 	width: 90%;
+	background-color: black;
 }
 
 .header span {
@@ -47,7 +48,8 @@
 }
 
 .cta-save,
-.cta-download {
+.cta-download,
+.cta-reset {
 	background: #fff;
 	padding: 0.2rem 0.6rem;
 	outline: none;
@@ -63,9 +65,16 @@
 	text-decoration: none;
 }
 
+.cta-reset,
 .cta-save > *,
 .cta-download > * {
 	margin: 0.25rem 0.5rem;
+}
+
+.reset-icon:active {
+	transform: rotate(60deg);
+	-webkit-transform: rotate(60deg);
+	-ms-transform: rotate(60deg);
 }
 
 iframe {

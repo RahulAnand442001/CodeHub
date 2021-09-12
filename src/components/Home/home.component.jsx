@@ -3,6 +3,7 @@ import "./home.styles.css";
 import Editor from "../Editor/editor.component";
 import Footer from "../Footer/footer.component";
 import { FaSave, FaCloudDownloadAlt } from "react-icons/fa";
+import { GrPowerReset } from "react-icons/gr";
 
 // home page
 function Home() {
@@ -65,6 +66,13 @@ function Home() {
 		setFileUrl(fileDownloadUrl);
 	};
 
+	const resetCode = () => {
+		sessionStorage.clear();
+		setHtml("");
+		setCss("");
+		setJs("");
+	};
+
 	// home component
 	return (
 		<div id="home">
@@ -92,6 +100,9 @@ function Home() {
 				<header className="header">
 					<span>CODEHUB</span>
 					<div className="cta">
+						<button onClick={resetCode} className="cta-save cta-reset">
+							<GrPowerReset size="1.2rem" className="reset-icon" />
+						</button>
 						<button onClick={saveSession} className="cta-save">
 							<FaSave size="1.2rem" /> SAVE
 						</button>
