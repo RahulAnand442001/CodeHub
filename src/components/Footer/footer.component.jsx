@@ -1,15 +1,17 @@
 import React from "react";
 import "./footer.styles.css";
+import { FaReact } from "react-icons/fa";
 
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faReact } from "@fortawesome/free-brands-svg-icons";
+const date = new Date().getFullYear();
 
 const Footer = () => {
 	return (
 		<div className="footer">
 			<p className="footer-title">
-				Made with <FontAwesomeIcon color="#fff" icon={faReact} /> by
-				<a href="https://github.com/RahulAnand442001" id="author-link">Rahul Anand Sahu</a>
+				Copyright &copy; {date} | Made with <FaReact /> by
+				<a href="https://github.com/RahulAnand442001" id="author-link">
+					Rahul Anand Sahu.
+				</a>
 			</p>
 		</div>
 	);

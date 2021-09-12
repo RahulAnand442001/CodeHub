@@ -2,16 +2,26 @@ import React, { useState, useRef, useEffect } from "react";
 import "./home.styles.css";
 import Editor from "../Editor/editor.component";
 import Footer from "../Footer/footer.component";
+import { FaSave, FaCloudDownloadAlt } from "react-icons/fa";
 
+// home page
 function Home() {
+	// maintain code segments in session storage
 	const [html, setHtml] = useState("");
 	const [css, setCss] = useState("");
 	const [js, setJs] = useState("");
 
+	// for downloading files
+	const [fileUrl, setFileUrl] = useState("");
+
+	// iframe element ref to view changes
+	const iframeInnerHtmlDoc = useRef();
+
+	// load session data if saved
 	useEffect(() => {
-		let htmlData = localStorage.getItem("html");
-		let cssData = localStorage.getItem("css");
-		let jsData = localStorage.getItem("js");
+		let htmlData = sessionStorage.getItem("html");
+		let cssData = sessionStorage.getItem("css");
+		let jsData = sessionStorage.getItem("js");
 		if (htmlData) {
 			setHtml(htmlData);
 		}
@@ -23,6 +33,7 @@ function Home() {
 		}
 	}, []);
 
+	// web page
 	let srcDoc = `
 	<!DOCTYPE html>
 	<html lang="en">
@@ -37,16 +48,24 @@ function Home() {
 	<body>${html}</body>
 	</html>`;
 
-	const iframeInnerHtmlDoc = useRef();
-
-	const handleClick = () => {
-		console.log(iframeInnerHtmlDoc.current.srcdoc);
-		//localStorage.setItem("htmlCode", iframeInnerHtmlDoc.current.srcdoc);
-		localStorage.setItem("html", html);
-		localStorage.setItem("css", css);
-		localStorage.setItem("js", js);
+	// save code segments and html doc on clicking save
+	const saveSession = () => {
+		sessionStorage.setItem("html", html);
+		sessionStorage.setItem("css", css);
+		sessionStorage.setItem("js", js);
+		sessionStorage.setItem("web-code", iframeInnerHtmlDoc.current.srcdoc);
 	};
 
+	// download html doc on clicking download
+	const downloadWebPage = () => {
+		let data = sessionStorage.getItem("web-code");
+		//console.log(data);
+		const blob = new Blob([data], { type: "html" });
+		const fileDownloadUrl = URL.createObjectURL(blob);
+		setFileUrl(fileDownloadUrl);
+	};
+
+	// home component
 	return (
 		<div id="home">
 			<div className="panel left-panel">
@@ -70,15 +89,21 @@ function Home() {
 				/>
 			</div>
 			<div className="panel right-panel">
-				<div className="right-panel-title">
+				<header className="header">
 					<span>CODEHUB</span>
 					<div className="cta">
-						<button onClick={handleClick} className="cta-save">
-							SAVE
+						<button onClick={saveSession} className="cta-save">
+							<FaSave size="1.2rem" /> SAVE
 						</button>
-						<button className="cta-download">DOWNLOAD</button>
+						<a
+							className="cta-download"
+							onClick={downloadWebPage}
+							download
+							href={fileUrl}>
+							<FaCloudDownloadAlt size="1.2rem" /> DOWNLOAD
+						</a>
 					</div>
-				</div>
+				</header>
 				<iframe
 					ref={iframeInnerHtmlDoc}
 					srcDoc={srcDoc}
