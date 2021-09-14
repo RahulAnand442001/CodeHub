@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useRef } from "react";
 import "./editor.styles.css";
 
 // code mirror playground
 import { Controlled as CodeMirror } from "react-codemirror2";
+
+// react icons
+import { FaWindowMinimize, FaWindowMaximize } from "react-icons/fa";
 
 // code mirror language features
 require("codemirror/mode/xml/xml");
@@ -29,13 +32,33 @@ const Editor = (props) => {
 		onChange(value);
 	};
 
+	const codeEditorRef = useRef();
+
+	const minimize = () => {
+		codeEditorRef.current.ref.style.display = "none";
+	};
+
+	const maximize = () => {
+		codeEditorRef.current.ref.style.display = "block";
+	};
+
 	return (
 		<div id="editor">
-			<div className="editor-title">{displayName}</div>
+			<header className="editor-header">
+				<span className="editor-title">{displayName}</span>
+				<div className="editor-cta">
+					<button class="cta-minimize" onClick={minimize}>
+						<FaWindowMinimize />
+					</button>
+					<button class="cta-maximize" onClick={maximize}>
+						<FaWindowMaximize />
+					</button>
+				</div>
+			</header>
 			<CodeMirror
 				onBeforeChange={handleChange}
 				value={value}
-				className="CodeMirror"
+				className={`CodeMirror ${language}`}
 				options={{
 					mode: language,
 					theme: "ayu-dark",
@@ -52,6 +75,7 @@ const Editor = (props) => {
 						"Ctrl-Space": "autocomplete",
 					},
 				}}
+				ref={codeEditorRef}
 			/>
 		</div>
 	);

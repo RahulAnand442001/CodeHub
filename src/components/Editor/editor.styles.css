@@ -1,12 +1,43 @@
 /* @import "codemirror/lib/codemirror.css"; */
 /* @import "codemirror/theme/ayu-dark.css"; */
 
-.editor-title {
+.editor-header {
 	background-color: black;
 	color: #eee;
 	font-size: 1rem;
 	letter-spacing: 2px;
 	padding: 1.5px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.editor-header > * {
+	margin: 0.2rem 0.8rem;
+}
+
+.editor-title {
+	color: cyan;
+	font-weight: 400;
+}
+.editor-cta {
+	display: flex;
+	align-items: center;
+	justify-content: space-around;
+}
+
+.cta-minimize,
+.cta-maximize {
+	margin: 0 0.5rem;
+	background: none;
+	outline: none;
+	border: none;
+	cursor: pointer;
+}
+
+.cta-minimize > *,
+.cta-maximize > * {
+	color: white;
 }
 
 .CodeMirror {
