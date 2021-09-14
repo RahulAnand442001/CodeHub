@@ -38,7 +38,7 @@ const Editor = (props) => {
 				className="CodeMirror"
 				options={{
 					mode: language,
-					theme: "material-ocean",
+					theme: "ayu-dark",
 					lineNumbers: true,
 					lineWrapping: true,
 					lint: true,
