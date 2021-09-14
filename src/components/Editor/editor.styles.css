@@ -1,11 +1,12 @@
-@import "codemirror/lib/codemirror.css";
-@import "codemirror/theme/ayu-dark.css";
+/* @import "codemirror/lib/codemirror.css"; */
+/* @import "codemirror/theme/ayu-dark.css"; */
 
 .editor-title {
 	background-color: black;
 	color: #eee;
 	font-size: 1rem;
 	letter-spacing: 2px;
+	padding: 1.5px;
 }
 
 .CodeMirror {

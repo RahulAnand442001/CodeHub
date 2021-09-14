@@ -4,6 +4,8 @@ import Editor from "../Editor/editor.component";
 import Footer from "../Footer/footer.component";
 import { FaSave, FaCloudDownloadAlt } from "react-icons/fa";
 import { GrPowerReset } from "react-icons/gr";
+import "codemirror/lib/codemirror.css"
+import "codemirror/theme/ayu-dark.css";
 
 // home page
 function Home() {
