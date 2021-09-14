@@ -61,7 +61,7 @@ function Home() {
 	const downloadWebPage = () => {
 		let data = sessionStorage.getItem("web-code");
 		//console.log(data);
-		const blob = new Blob([data], { type: "html" });
+		const blob = new Blob([data], { type: "text/html" });
 		const fileDownloadUrl = URL.createObjectURL(blob);
 		setFileUrl(fileDownloadUrl);
 	};

@@ -1,6 +1,7 @@
 * {
 	padding: 0;
 	margin: 0;
+	scrollbar-width: thin;
 }
 
 html {
@@ -20,4 +21,22 @@ body {
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
 		monospace;
+}
+
+::-webkit-scrollbar {
+	width: 8px; /* width of the entire scrollbar */
+}
+
+::-webkit-scrollbar-track {
+	background: black; /* color of the tracking area */
+}
+
+::-webkit-scrollbar-thumb {
+	background-color: #777; /* color of the scroll thumb */
+	border-radius: 20px; /* roundness of the scroll thumb */
+	border: 3px solid #131212; /* creates padding around scroll thumb */
+}
+
+::-webkit-scrollbar-corner {
+	background-color: black;
 }
