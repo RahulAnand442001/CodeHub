@@ -1,5 +1,6 @@
 # CODEHUB
-## WEBSITE - cra-codehub.herokuapp.com/
+
+### [Visit Website](https://cra-codehub.herokuapp.com/)
 
 ![Page Thumbnail](./src/images/page.png)
 
@@ -24,7 +25,8 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-Clone the GIT Repository using - 
+Clone the GIT Repository using -
+
 ### `git clone https://github.com/RahulAnand442001/CodeHub.git`
 
 In the project directory, you can run:
@@ -68,6 +70,6 @@ You can learn more in the [Create React App documentation](https://facebook.gith
 
 To learn React, check out the [React documentation](https://reactjs.org/).
 
-
 Thanks for checking out the project.<br/>
-### Copyright&copy; 2021-22 by Rahul Anand Sahu 
+
+### Copyright&copy; 2021-22 by Rahul Anand Sahu
